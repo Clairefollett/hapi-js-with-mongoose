@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 const server = new Hapi.Server();
-server.connection({ port: 3000 });
+server.connection({ port: 3001 });
 const Mongoose = require('mongoose');
 const routes = require('./routes');
 
