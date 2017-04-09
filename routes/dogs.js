@@ -26,6 +26,7 @@ exports.index = function (server) {
             });
         }
     });
+
 };
 
 //creates new event in the datastore
@@ -53,7 +54,6 @@ exports.create = function (server) {
         }
     });
 };
-
 
 function getErrorMessageFrom(err) {
     const errorMessage = '';
