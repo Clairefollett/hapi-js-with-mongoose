@@ -60,15 +60,28 @@ exports.show = function(server) {
     server.route({
         method: 'GET',
         path: '/dogs/{id}',
+        config: {
+            validate: {
+                params: {
+                    id: Joi.string().alphanum().min(5).required()
+                }
+            }
+        },
         handler: function (request, reply) {
-            Dog.findById(request.params.id, function (err, dog) {
-                if (!err & dog) {
-                    reply(dog);
-                } else if (err) {
+            const filter = {}
+
+            if (request.params.id) {
+                filter.id = request.params.id
+            }
+
+            Dog.findById(filter, function (err, dog) {
+                if (err) {
                     console.log(err)
                     reply(Boom.notFound());
                 } else {
-                    reply(Boom.notFound());
+                    if (dog.id === filter) {
+                        reply(dog)
+                    }
                 }
             });
         }
