@@ -21,5 +21,5 @@ routes.init(server);
 
 
 server.start(function () {
-    console.log('server is running')
+    console.log('server is running at: ', server.info.url)
 });

@@ -5,6 +5,7 @@ const Dog = require('../models/dogs');
 module.exports = exports = function (server) {
     console.log('loading event routes');
     exports.create(server)
+
     exports.index(server)
     // exports.show(server)
 };
@@ -53,11 +54,6 @@ exports.create = function (server) {
     });
 };
 
-
-//Deletes dog by id
-exports.remove = function (server) {
-
-}
 
 function getErrorMessageFrom(err) {
     const errorMessage = '';
