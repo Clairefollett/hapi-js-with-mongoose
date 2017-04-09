@@ -1,0 +1,25 @@
+{
+  "name": "hapi-js-with-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clairefollett/hapi-js-with-mongoose.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clairefollett/hapi-js-with-mongoose/issues"
+  },
+  "homepage": "https://github.com/Clairefollett/hapi-js-with-mongoose#readme",
+  "dependencies": {
+    "boom": "^4.3.1",
+    "hapi": "^16.1.1",
+    "joi": "^10.4.1",
+    "mongoose": "^4.9.3"
+  }
+}
