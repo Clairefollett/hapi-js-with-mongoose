@@ -2,7 +2,7 @@
   "name": "hapi-js-with-mongoose",
   "version": "1.0.0",
   "description": "",
-  "main": "node server",
+  "main": "server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
