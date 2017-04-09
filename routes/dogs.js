@@ -5,6 +5,7 @@ const Dog = require('../models/dogs');
 module.exports = exports = function (server) {
     console.log('loading event routes');
     exports.create(server)
+<<<<<<< HEAD
 
     exports.index(server)
     // exports.show(server)
@@ -27,6 +28,8 @@ exports.index = function (server) {
         }
     });
 
+=======
+>>>>>>> parent of f69b5e0... post and get all working! and it is returning a list with a __v and _id
 };
 
 //creates new event in the datastore
