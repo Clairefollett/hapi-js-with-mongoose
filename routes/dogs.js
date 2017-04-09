@@ -6,6 +6,7 @@ module.exports = exports = function (server) {
     console.log('loading event routes');
     exports.index(server)
     exports.create(server)
+    exports.show(server)
     // exports.show(server)
 };
 
@@ -51,6 +52,27 @@ exports.create = function (server) {
 
         }
     });
+};
+
+//GET by _id
+exports.show = function(server) {
+
+    server.route({
+        method: 'GET',
+        path: '/dogs/{id}',
+        handler: function (request, reply) {
+            Dog.findById(request.params.id, function (err, dog) {
+                if (!err & dog) {
+                    reply(dog);
+                } else if (err) {
+                    console.log(err)
+                    reply(Boom.notFound());
+                } else {
+                    reply(Boom.notFound());
+                }
+            });
+        }
+    })
 };
 
 function getErrorMessageFrom(err) {
