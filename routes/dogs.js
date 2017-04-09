@@ -5,6 +5,7 @@ const Dog = require('../models/dogs');
 module.exports = exports = function (server) {
     console.log('loading event routes');
     exports.create(server)
+    exports.index(server)
 };
 
 //creates new event in the datastore
@@ -32,6 +33,33 @@ exports.create = function (server) {
         }
     });
 };
+
+//GET all doggies
+exports.index = function (server) {
+    server.route({
+        method: 'GET',
+        path: '/dogs',
+        handler: function (request, reply) {
+            Dog.find({}, function (err, dogs) {
+                if (!err) {
+                    reply(dogs);
+                } else {
+                    reply(Boom.badImplementation(err));
+                }
+            });
+        }
+    });
+};
+
+//GET by id
+exports.show = function (server) {
+
+}
+
+//Deletes dog by id
+exports.remove = function (server) {
+
+}
 
 function getErrorMessageFrom(err) {
     const errorMessage = '';
