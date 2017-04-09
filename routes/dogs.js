@@ -7,7 +7,7 @@ module.exports = exports = function (server) {
     exports.index(server)
     exports.create(server)
     exports.show(server)
-    // exports.show(server)
+    exports.remove(server)
 };
 
 //GET all doggies
@@ -79,7 +79,7 @@ exports.show = function(server) {
                     console.log(err)
                     reply(Boom.notFound());
                 } else {
-                    if (dog.id === filter) {
+                    if (dog.id === filter && dog) {
                         reply(dog)
                     }
                 }
@@ -87,6 +87,34 @@ exports.show = function(server) {
         }
     })
 };
+
+// exports.remove = function (server) {
+    
+//     server.route({
+//         method: 'DELETE',
+//         path: '/dogs/{id}',
+//         config: {
+//             validate: {
+//                 params: {
+//                     id: Joi.string().alphanum().min(5).required()
+//                 }
+//             }
+//         },
+//         handler: function (request, reply) {
+//             Dog.findById(request.params.id, function(err, dog) {
+//                 if(!err && dog) {
+//                     dog.remove();
+//                     reply({ message: "Dog deleted successfully"});
+//                 } else if(!err) {
+//                     reply(Boom.notFound());
+//                 } else {
+//                     console.log(err);
+//                     reply(Boom.badRequest("Could not delete dog"));
+//                 }
+//             });
+//         }
+//     })
+// };
 
 function getErrorMessageFrom(err) {
     const errorMessage = '';
